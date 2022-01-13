@@ -1,0 +1,8 @@
+Config file - https://neat-python.readthedocs.io/en/latest/config_file.html
+Original Neat Paper - http://nn.cs.utexas.edu/downloads/papers/stanley.cec02.pdf
+
+Notes:
+So, we start out with our original neuron network, with each connection having a certain weight. However, this then creates random neuron cells
+connect to the next layer based upon these weights. Done to find a topology. (TU: 6:43:39). Using activation function, TANH, to see if we
+want to jump or not. It squishes our values between 1 and -1 and if we have a value above 0.5, jump, otherwise don't. Our fitness
+function just counts how many frames the bird has made it, and the bird that made through the most frames is the most fit bird.

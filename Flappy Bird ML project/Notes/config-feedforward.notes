@@ -1,0 +1,93 @@
+[NEAT]
+# Take only the fittest birds (MIN takes the least fit birds)
+fitness_criterion     = max
+# Fitness score needed to end the algorithm
+fitness_threshold     = 100
+# The initial population size in each generation
+pop_size              = 50
+# If a species (A bird who has a different neuron structure than others) goes extinct, then it will create a new species if this value is true
+# Otherwise no if this value, like here, is set false.
+reset_on_extinction   = False
+
+# What each bird initially starts with in terms of their genes (connections between the nodes)
+[DefaultGenome]
+# node activation options
+activation_default      = tanh
+# The below is the chance that a new member of the population gains a new activation rate (TU this in the bigger picture: 6:57:06)
+activation_mutate_rate  = 0.0
+# What the activation_mutate_rate would pick from
+activation_options      = tanh
+
+# node aggregation options
+aggregation_default     = sum
+aggregation_mutate_rate = 0.0
+aggregation_options     = sum
+
+# node bias options
+# TU: 6:57:41
+bias_init_mean          = 0.0
+bias_init_stdev         = 1.0
+bias_max_value          = 30.0
+bias_min_value          = -30.0
+# How things are likely to change when mutations occur (TU: 6:57:50)
+bias_mutate_power       = 0.5
+bias_mutate_rate        = 0.7
+bias_replace_rate       = 0.1
+
+# genome compatibility options
+compatibility_disjoint_coefficient = 1.0
+compatibility_weight_coefficient   = 0.5
+
+# connection add/remove rates
+conn_add_prob           = 0.5
+conn_delete_prob        = 0.5
+
+# connection enable options
+# TU: 6:58:57
+enabled_default         = True
+enabled_mutate_rate     = 0.01
+# Feed forward neuron structure
+feed_forward            = True
+initial_connection      = full
+
+# node add/remove rates
+node_add_prob           = 0.2
+node_delete_prob        = 0.2
+
+# network parameters
+# Simplest neuron
+num_hidden              = 0
+num_inputs              = 3
+num_outputs             = 1
+
+# node response options
+response_init_mean      = 1.0
+response_init_stdev     = 0.0
+response_max_value      = 30.0
+response_min_value      = -30.0
+response_mutate_power   = 0.0
+response_mutate_rate    = 0.0
+response_replace_rate   = 0.0
+
+# connection weight options
+weight_init_mean        = 0.0
+weight_init_stdev       = 1.0
+weight_max_value        = 30
+weight_min_value        = -30
+weight_mutate_power     = 0.5
+weight_mutate_rate      = 0.8
+weight_replace_rate     = 0.1
+
+[DefaultSpeciesSet]
+compatibility_threshold = 3.0
+
+[DefaultStagnation]
+# Take the max fitness from the species
+species_fitness_func = max
+# How many generations we go without increasing the max fitness for a species; if we exceed this number we eliminate that species
+max_stagnation       = 20
+species_elitism      = 2
+
+[DefaultReproduction]
+elitism            = 2
+survival_threshold = 0.2
